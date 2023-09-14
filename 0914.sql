@@ -20,16 +20,19 @@ FROM EMP;
 -- 실습문제 --
 -- 1. 사원이름이 S로 끝나는 사원 데이터 출력
 SELECT * FROM EMP
+WHERE ENAME LIKE '%S';
 
 
 -- 2. 30분 부서에서 근무하는 사원 중 직책이 
 --    SALESMAN인 사원의 사원번호, 이름, 직책, 급여, 부서번호 출력
-
+SELECT EMPNO, ENAME, JOB, SAL, DEPTNO
+FROM MEP
+WHERE DEPTNO = 30 AND JOB = 'SALESMAN';
 
 -- 3. 20번, 30번 부서에 근무하는 사원 중 급여가 2000 초과인 
 --    사원의 사원번호, 이름, 급여, 부서 번호 출력
 
-asfdasfd
+
 --4. BETWEEN 연산자 사용하지 않고 급여가 2000 이상 3000 이하 데이터 출력
 
 
@@ -39,3 +42,7 @@ asfdasfd
 
 --6. 추가 수당이 존재하지 않고 상급자의 직책이 MANAGER, CLERK인 사원에서
 --    사원이름의 두번째 글자가 L이 아닌 사원의 정보를 출력
+SELECT * FROM EMP
+WHERE COMM is NULL
+and MGR is not NULLand job IN ('MANAGER', 'CLERK')
+and ename not like '_L%';
